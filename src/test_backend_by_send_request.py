@@ -14,6 +14,5 @@ try:
         requests.get(urlButton)
         print("send request to button API")
 
-
 except Exception as error:
-    print("sth wrong")
+    print("Can't send request.")

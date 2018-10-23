@@ -5,7 +5,6 @@ import json
 from src.sms_sender_node import SMSsender
 from src.call_maker_node import CallMaker
 
-
 GPIO.setmode(GPIO.BCM)
 chanA_list = [4,18,17]
 GPIO.setup(chanA_list, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -31,22 +30,23 @@ def main():
 
         # send the SMS
         if YELLOW_BUTTON_STATE == False:
-            print('YELLOW Buttoms pressed')
+            print('YELLOW Buttom pressed')
             data["yellow"] = True
             requests.get(url, json.dumps(data))
-            s.sendingSMSMessage()
+            s.sendingSMSMessage("")
             time.sleep(1)
 
         # IMOKAY, ALL GOOD
         elif RED_BUTTON_STATE == False:
-            print('RED Buttoms pressed')
+            print('RED Buttom pressed')
             data["red"] = True
             requests.get(url, json.dumps(data))
+            c.makingAPhoneCall()
             time.sleep(1)
 
         # Make an emergency call
         elif GREEN_BUTTON_STATE == False:
-            print('GREEN Buttoms pressed')
+            print('GREEN Buttom pressed')
             IMOKAY = True
             data["green"] = True
             requests.get(url, json.dumps(data))
@@ -66,7 +66,6 @@ def main():
             print('Buttoms not pressed')
             time.sleep(1)
 
-        data = {"red": False, "green": False, "yellow": False}
         if localTime.tm_hour  == 11 or localTime.tm_hour == 22:
             IMOKAY == False
             
