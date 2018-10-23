@@ -7,9 +7,9 @@ class SMSsender:
 
     def sendingSMSMessage(self, msg):
         if msg == '':
-           response = self.client.send_message({'from': 'NEXMO', 'to': '37255570211', 'text': 'I need you'})
+           response = self.client.send_message({'from': 'NEXMO', 'to': '37255555555', 'text': 'I need you'})
         else:
-           response = self.client.send_message({'from': 'NEXMO', 'to': '37255570211', 'text': msg})
+           response = self.client.send_message({'from': 'NEXMO', 'to': '37255555555', 'text': msg})
             
         response = response['messages'][0]
         
