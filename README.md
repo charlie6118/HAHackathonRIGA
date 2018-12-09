@@ -1,4 +1,6 @@
-# 'mOkay 
+# 'mOkay
+Hardware and Art Hackathon Raspberry pi project
+
 •	Provide a solution to take care of elder people who lived alone
 
 •	Build an IoT Device with Raspberry Pi and Python, integrate with the web app and smartphone
